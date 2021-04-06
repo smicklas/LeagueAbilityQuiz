@@ -101,19 +101,24 @@ function getAbilityInfo(content){
         const re_image = /(?<=(<div class="ability-list__item__keybind">.<\/div>).*?)(?<=<img src=".\/Abilities __ LoL Champion Abilities_files\/).*?(?=" alt)/gs
         temp.image = (content).match(re_image)[0];
     }
+
+    const re_description = /(?<=<span class="desc">)(.*?)(?=<div)/gs
+    temp.description = (content).match(re_description)[0];
     console.log(temp);
 
     //TODO - move to its own function
     let parent = document.getElementById("temp-container");
     const newDiv = document.createElement("div");
     const c= document.createTextNode(temp.champion + " ");
-    const a = document.createTextNode(temp.ability+ " ");
-    const i = document.createTextNode(temp.image+ " ");
-    const k = document.createTextNode(temp.control+ " ");
+    const a = document.createTextNode(temp.ability + " ");
+    const i = document.createTextNode(temp.image + " ");
+    const k = document.createTextNode(temp.control + " ");
+    const d = document.createTextNode(temp.description + " ");
     newDiv.append(c);
     newDiv.append(a);
     newDiv.append(i);
     newDiv.append(k);
+    newDiv.append(d);
     parent.append(newDiv);
     return temp;
 }
