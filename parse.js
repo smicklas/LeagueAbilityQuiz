@@ -111,9 +111,11 @@ function getAbilityInfo(content){
     const newDiv = document.createElement("div");
     const c= document.createTextNode(temp.champion + " ");
     const a = document.createTextNode(temp.ability + " ");
-    const i = document.createTextNode(temp.image + " ");
+    var i = document.createElement('img');
+    i.src= "/source/Abilities __ LoL Champion Abilities_files/" + temp.image;
     const k = document.createTextNode(temp.control + " ");
     const d = document.createTextNode(temp.description + " ");
+    
     newDiv.append(c);
     newDiv.append(a);
     newDiv.append(i);
