@@ -53,6 +53,8 @@ import '../stylesheets/styles.css'
     //TODO - rename data entry from temp. need to make sure the datap parsing is done before we move on
     //TODO - backend for the file parsing 
     getAbilityInfo(content){
+      var temp = {"ability": null, "champion": null, "control": null, "image": null, "description": null, "isPNG": false };
+
       //Check for passives
       const re_passive = /(passive-symbol)/g
       var passive_check = (content).match(re_passive);
@@ -61,14 +63,13 @@ import '../stylesheets/styles.css'
           isPassive = true; 
       }
       //Regex for getting ability name
-      var temp = {"ability": null, "champion": null, "control": null, "image": null, "description": null};
       const re_ability = /(?<="ability-list__item__name">).*?(?=\n* *<span)/gs
       temp.ability = (content).match(re_ability)[0];
   
       //Regex for champion name 
       const re_champion = /(?<=champ=").*?(?=\n* *")/g
       temp.champion = (content).match(re_champion)[0];
-  
+
       //Regex for default key of ability
       if(isPassive){
           temp.control = "Passive"
@@ -84,9 +85,25 @@ import '../stylesheets/styles.css'
           const re_image = /(?<=(<div class="ability-list__item__keybind">.<\/div>).*?)(?<=<img src=".\/Abilities __ LoL Champion Abilities_files\/).*?(?=" alt)/gs
           temp.image = (content).match(re_image)[0];
       }
+
+      //Check if it's a png 
+      //TODO - sometimes the ability is a webp but the champ img is a png 
+      const re_png = /(.png)/g
+      var png_check = (temp.image).match(re_png);
+      if(png_check != null){
+        temp.isPNG = true;
+      }else{
+        temp.isPNG = false;
+      }
   
       const re_description = /(?<=<span class="desc">)(.*?)(?=<div)/gs
       temp.description = (content).match(re_description)[0];
+
+      //TODO - some are .pngs.... 
+
+      const apostrophe_code = "&#39;";
+      temp.champion = temp.champion.replace(apostrophe_code, "'");
+
       var temp_sourceData = this.state.sourceData;
       temp_sourceData.push(temp);
       this.setState({sourceData : temp_sourceData});

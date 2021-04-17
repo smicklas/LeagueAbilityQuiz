@@ -9,9 +9,104 @@ body{
     color: white;
 }
 
-.quiz-container{
+.app-container{
     align-items: center;
-    background-color: rgb(34, 34, 34);
-    width: 90vh;
-    height: 90vw;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #B9A980;
+    width: 90vw;
+    background: rgb(34,34,34);
+    background: linear-gradient(180deg, #1F1F1F 45%, #0A0A0A 100%);
+    height: fit-content;
+    padding: 0px 0px 30px 0px;
+    min-height: 80v;
 }
+
+.ability-image{
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 50%;
+    background-color:#B9A980;
+    border: 5px solid #B9A980;
+    box-shadow: 0 0 0 8px #1F1F1F, 0 0 0 10px #B9A980, 0 0 0 15px #1F1F1F;
+}
+
+
+
+.ability-image.small{
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    border-radius: 50%;
+    background-color:#B9A980;
+    border: 5px solid #B9A980;
+    box-shadow: 0 0 0 8px #1F1F1F, 0 0 0 10px #B9A980, 0 0 0 15px #1F1F1F;
+}
+
+h2 {
+    width: 80%; 
+    text-align: center; 
+    background: #1F1F1F;
+    background: linear-gradient(90deg, rgba(61,61,61,0) 0%, rgba(185,169,128,1) 50%, rgba(61,61,61,0) 100%);
+    line-height: 0.1em;
+    margin: 20px 10% 30px 10%;
+    color: #B9A980;
+}
+
+h2 span{
+    background: #1F1F1F;
+    padding:0 10px;
+}
+
+p.ability-description{
+    font-size: 16px;
+    width: 70%;
+    margin: 20px auto
+}
+
+.ability-champion{
+    margin: 5px;
+    font-size: 25px;
+}
+
+hr.gradient-decor{
+    width: 40%;
+    height: 1px;
+    border-color: #0000;
+    background: linear-gradient(90deg, rgba(61,61,61,0) 0%, rgba(185,169,128,1) 50%, rgba(61,61,61,0) 100%);
+}
+
+p.ability-title{ 
+    margin: 20px;
+}
+
+div.champion-img {
+    width: 129px;
+    height: 129px;
+    margin: 20px auto;
+    overflow: hidden;
+    z-index: 1;
+    left: 45%;
+    top: 51%;
+    position: absolute;
+  }
+  
+  .image-border {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    z-index: 2;
+    left: 45%;
+    top: 53%;
+    background-image: url("../border.png");
+    background-size: cover;
+  }
+
+
+  .image-container{
+    width: 120px;
+    height: 120px;
+    align-items: center;
+    margin: 30px;
+  }
