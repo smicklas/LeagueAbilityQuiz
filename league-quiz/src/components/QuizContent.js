@@ -13,7 +13,9 @@ class QuizContent extends React.Component {
       showAnswer: false,
       isCorrect : null,
       totalQuestions : this.props.data.numberOfQuestions,
-      userAnswer: ""
+      userAnswer: "",
+      quizCompleted: false,
+      rank : null
     }
   }
 
@@ -63,6 +65,35 @@ class QuizContent extends React.Component {
 
   nextPage = () => {
     if(this.state.currentQuestion + 1  == this.state.totalQuestions){
+      this.setState({quizCompleted : true})
+      let correctPercentage = this.state.correctAnswers / this.state.totalQuestions;
+      if(0 <= correctPercentage < 7){
+        this.setState({rank: "D-"});
+      }else if(7 <= correctPercentage < 14){
+        this.setState({rank: "D"});
+      }else if(14 <= correctPercentage < 21){
+        this.setState({rank: "D+"});
+      }else if(21 <= correctPercentage < 27){
+        this.setState({rank: "C-"});
+      }else if(28 <= correctPercentage < 34){
+        this.setState({rank: "C"});
+      }else if(35 <= correctPercentage < 41){
+        this.setState({rank: "C+"});
+      }else if(49 <= correctPercentage < 56){
+        this.setState({rank: "B-"});
+      }else if(56 <= correctPercentage < 63){
+        this.setState({rank: "B"});
+      }else if(63 <= correctPercentage < 70){
+        this.setState({rank: "B+"});
+      }else if(70 <= correctPercentage < 77){
+        this.setState({rank: "A-"});
+      }else if(77 <= correctPercentage < 84){
+        this.setState({rank: "A"});
+      }else if(84 <= correctPercentage < 91){
+        this.setState({rank: "A+"});
+      }else if(91 <= correctPercentage < 98){
+        this.setState({rank: "S"});
+      }
       console.log("all done!")
     }else{
       this.setState({isCorrect: null});
@@ -82,15 +113,21 @@ class QuizContent extends React.Component {
     return (
         <div className="quiz-content">
           {this.state.isCorrect ?
-            <p className="feedback-text correct">Correct</p>
+            <div className="feedback">
+              <p className="feedback-text correct">Correct</p>
+              <hr className="gradient-decor blue"/>
+            </div>
           :
             this.state.attempts > 0 && !this.state.showAnswer ?
-              <p className="feedback-text incorrect">Incorrect</p>
+              <div className="feedback">
+                <p className="feedback-text incorrect">Incorrect</p>
+                <hr className="gradient-decor red"/>
+              </div>
             :
               <p className="feedback-text"></p>
           }
           
-          {this.state.showAnswer ? 
+          {this.state.showAnswer && !this.state.quizCompleted ? 
             <div className="">
               <img className="ability-image small" src={`${this.state.sourceData[this.state.currentQuestion].image}`}/>
               <h1>{this.state.currentQuestion + 1}/{this.state.totalQuestions}</h1>
@@ -102,16 +139,27 @@ class QuizContent extends React.Component {
               </div>
               <div className="ability-champion">{this.state.sourceData[this.state.currentQuestion].champion}</div>
               <p className="ability-description" dangerouslySetInnerHTML={{__html: this.state.sourceData[this.state.currentQuestion].description}}></p>
-              <button className="primary-button" onClick={this.nextPage}>NEXT</button>
+              <div className="button-wrapper">
+                <button className="primary-button" onClick={this.nextPage}>NEXT</button>
+              </div>
             </div>
           :
+            this.state.quizCompleted ?
             <div className="">
-              <img className="ability-image" src={`${this.state.sourceData[this.state.currentQuestion].image}`}/>
-              <h1>{this.state.currentQuestion + 1}/{this.state.totalQuestions}</h1>
-              <input type="text" onChange={this.handleChange}/>
-              <button className="primary-button" onClick={this.checkAnswer}>SUBMIT</button>
-              <button className="secondary-button" onClick={this.showAnswer}>I GIVE UP!</button>
+              {this.state.rank}
+              <br></br>
+              {this.state.correctAnswers}/{this.state.totalQuestions}
             </div>
+            : 
+              <div className="">
+                <img className="ability-image" src={`${this.state.sourceData[this.state.currentQuestion].image}`}/>
+                <h1>{this.state.currentQuestion + 1}/{this.state.totalQuestions}</h1>
+                <input type="text" onChange={this.handleChange}/>
+                <div className="button-wrapper">
+                  <button className="primary-button" onClick={this.checkAnswer}>SUBMIT</button>
+                </div>
+                <button className="secondary-button" onClick={this.showAnswer}>I GIVE UP!</button>
+              </div>
           }
         </div>
     );

@@ -98,10 +98,12 @@ class AppContainer extends React.Component {
                 <p>ALL</p>
               </div>
             </div>
-            <button className="primary-button large" onClick={this.startGame}>
-              {" "}
-              START{" "}
-            </button>
+            <div className="button-wrapper">
+              <button className="primary-button large" onClick={this.startGame}>
+                {" "}
+                START{" "}
+              </button>
+            </div>
           </div>
         ) : (
           <QuizContent data={this.state} />
