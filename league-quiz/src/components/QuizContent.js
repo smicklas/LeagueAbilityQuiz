@@ -145,11 +145,21 @@ class QuizContent extends React.Component {
             </div>
           :
             this.state.quizCompleted ?
-            <div className="">
-              {this.state.rank}
-              <br></br>
-              {this.state.correctAnswers}/{this.state.totalQuestions}
-            </div>
+              <div className="score-container">
+                <div className="score-text">
+                  <p className= "larger">
+                    {this.state.rank}
+                  </p>
+                  <hr className="gradient-decor wider"/>
+                  <p className="smaller">
+                    {this.state.correctAnswers}/{this.state.totalQuestions} correct
+                  </p>
+                </div> 
+                <div className="rotating-border"> </div>
+                Refresh to try again.
+              </div>
+         
+              
             : 
               <div className="">
                 <img className="ability-image" src={`${this.state.sourceData[this.state.currentQuestion].image}`}/>
