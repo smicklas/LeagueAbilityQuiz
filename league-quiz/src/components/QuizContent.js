@@ -15,7 +15,8 @@ class QuizContent extends React.Component {
       totalQuestions : this.props.data.numberOfQuestions,
       userAnswer: "",
       quizCompleted: false,
-      rank : null
+      rank : null,
+      difficultyImg: this.props.data.difficultyImg
     }
   }
 
@@ -40,7 +41,8 @@ class QuizContent extends React.Component {
     //convert to lower cases 
     let cleansedAbilityName = this.state.sourceData[this.state.currentQuestion].name.toLowerCase();
     let cleansedUserInput = this.state.userAnswer.toLowerCase();
-
+    //TODO - remove special chars like exclamation, aposthrope, etc 
+    
     //remove spaces
     cleansedUserInput = cleansedUserInput.replace(/\s/g, '');
     cleansedAbilityName = cleansedAbilityName.replace(/\s/g, '');
@@ -146,6 +148,8 @@ class QuizContent extends React.Component {
           :
             this.state.quizCompleted ?
               <div className="score-container">
+                <div className="score-text-background-img" style={{backgroundImage:`url(${this.state.difficultyImg})`, backgroundRepeat: "no-repeat", backgroundSize: "contain", backgroundPosition: "center"}}>
+                </div> 
                 <div className="score-text">
                   <p className= "larger">
                     {this.state.rank}

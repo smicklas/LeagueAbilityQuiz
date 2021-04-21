@@ -3,6 +3,11 @@
   src: local('OPTIDiamond'), url(../fonts/OPTIDiamond-DemiBold.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Palanquin';
+  src: local('Palanquin'), url(../fonts/Palanquin-Regular.ttf) format('truetype');
+}
+
 body{ 
     min-height: 100vh;
     display: flex;
@@ -157,13 +162,14 @@ div.champion-img {
     padding: 5px 30px 5px 30px;
     font-size: 20px;
     cursor: pointer;
+    border: none;
   }
 
   button.primary-button.large{
     display: block;
     color: #B9A980;
     background: #1F1F1F;
-    padding: 10px 60px 10px 60px;
+    padding: 9px 50px 9px 50px;
     font-size: 19px;
     cursor: pointer;
   }
@@ -253,7 +259,7 @@ div.champion-img {
 
 .button-wrapper{
   width: fit-content;
-  background: linear-gradient(to bottom, #b9a980, #ffffff, #ffd56b);
+  background: linear-gradient(to bottom, #C5AA6E, #AF8B38);
   padding: 2px;
   margin: 20px auto 20px auto;
 }
@@ -275,19 +281,19 @@ div.champion-img {
   border-radius: 50%;
   border: 2px dashed #C5A661;
   animation-name: Rotate;
-  animation-duration: 30s;
+  animation-duration: 50s;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
   -webkit-animation-name: Rotate;
-  -webkit-animation-duration: 30s;
+  -webkit-animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   -moz-animation-name: Rotate;
-  -moz-animation-duration: 30s;
+  -moz-animation-duration: 50s;
   -moz-animation-iteration-count: infinite;
   -moz-animation-timing-function: linear;
   -ms-animation-name: Rotate;
-  -ms-animation-duration: 30s;
+  -ms-animation-duration: 50s;
   -ms-animation-iteration-count: infinite;
   -ms-animation-timing-function: linear;
 }
@@ -295,7 +301,6 @@ div.champion-img {
 @keyframes Rotate{
   from {transform:rotate(0deg);}
   to {transform:rotate(360deg);}
-
 }
 @-webkit-keyframes Rotate
 {
@@ -326,10 +331,22 @@ to{-ms-transform:rotate(360deg);}
   top: 7%;
   height: 300px;
   width: 300px;
-  background-color: #1f1f1f;
   border-radius: 50%;
   border-style: solid;
   border-color: #C5A661;
+  background: radial-gradient(#0000004f, #000000);
+}
+
+
+.score-text-background-img{
+  position: absolute;
+  left: 7%;
+  top: 7%;
+  height: 300px;
+  width: 300px;
+  background-color: #1f1f1f;
+  border-radius: 50%;
+  filter: blur(2px);
 }
 
 .score-text .larger{
@@ -344,4 +361,68 @@ to{-ms-transform:rotate(360deg);}
   margin: 0px;
   font-family: 'OPTIDiamond';
   color: #ffffffc2;
+}
+
+.difficulty-button-wrapper p {
+  color: #ffffff8c;
+}
+
+.modal {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  /* right: 40px; */
+  /* bottom: 40px; */
+  background-color: #020A12;
+  width: 43vw;
+  height: fit-content;
+  text-align: center;
+  padding: 10px;
+  font-family: 'Palanquin';
+  font-size: 20px;
+  border-style: solid;
+  border-color: #C5A661;
+  border-width: 1px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0a0b0ee0;
+}
+
+.loader {
+  width: 70%;
+  height: 10px;
+  position: relative;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-color: #C5A661;
+  border-width: 1px;
+  margin: auto auto 10px auto;
+  -webkit-animation: Animation 5s ease infinite;
+  -moz-animation: Animation 5s ease infinite;
+  animation: Animation 2s ease infinite;
+  background: linear-gradient(130deg, #3EBFB5, #20698A, #000000);
+  background-size: 200% 200%;
+}
+
+
+@-webkit-keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+@-moz-keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+@keyframes Animation { 
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
 }
