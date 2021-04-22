@@ -20,8 +20,6 @@ class QuizContent extends React.Component {
     }
   }
 
-  //TODO - more descriptive variables! 
-
   componentDidMount(){
 
   }
@@ -41,11 +39,14 @@ class QuizContent extends React.Component {
     //convert to lower cases 
     let cleansedAbilityName = this.state.sourceData[this.state.currentQuestion].name.toLowerCase();
     let cleansedUserInput = this.state.userAnswer.toLowerCase();
-    //TODO - remove special chars like exclamation, aposthrope, etc 
     
     //remove spaces
     cleansedUserInput = cleansedUserInput.replace(/\s/g, '');
     cleansedAbilityName = cleansedAbilityName.replace(/\s/g, '');
+
+    //remove non-alphanumeric characters
+    cleansedUserInput = cleansedUserInput.replace(/[^0-9a-z]/gi, '');
+    cleansedAbilityName = cleansedAbilityName.replace(/[^0-9a-z]/gi, '');
 
     let differenceCheck = "";
     differenceCheck = this.checkDifference(cleansedAbilityName, cleansedUserInput)
@@ -67,36 +68,36 @@ class QuizContent extends React.Component {
 
   nextPage = () => {
     if(this.state.currentQuestion + 1  == this.state.totalQuestions){
+      this.setState({isCorrect: null});
       this.setState({quizCompleted : true})
-      let correctPercentage = this.state.correctAnswers / this.state.totalQuestions;
-      if(0 <= correctPercentage < 7){
+      let correctPercentage = Number((this.state.correctAnswers / this.state.totalQuestions) * 100);
+      if(0 <= correctPercentage && correctPercentage < 7){
         this.setState({rank: "D-"});
-      }else if(7 <= correctPercentage < 14){
+      }else if(7 <= correctPercentage && correctPercentage < 14){
         this.setState({rank: "D"});
-      }else if(14 <= correctPercentage < 21){
+      }else if(14 <= correctPercentage && correctPercentage < 21){
         this.setState({rank: "D+"});
-      }else if(21 <= correctPercentage < 27){
+      }else if(21 <= correctPercentage && correctPercentage < 27){
         this.setState({rank: "C-"});
-      }else if(28 <= correctPercentage < 34){
+      }else if(28 <= correctPercentage && correctPercentage < 34){
         this.setState({rank: "C"});
-      }else if(35 <= correctPercentage < 41){
+      }else if(35 <= correctPercentage && correctPercentage < 41){
         this.setState({rank: "C+"});
-      }else if(49 <= correctPercentage < 56){
+      }else if(49 <= correctPercentage && correctPercentage < 56){
         this.setState({rank: "B-"});
-      }else if(56 <= correctPercentage < 63){
+      }else if(56 <= correctPercentage && correctPercentage < 63){
         this.setState({rank: "B"});
-      }else if(63 <= correctPercentage < 70){
+      }else if(63 <= correctPercentage && correctPercentage < 70){
         this.setState({rank: "B+"});
-      }else if(70 <= correctPercentage < 77){
+      }else if(70 <= correctPercentage && correctPercentage < 77){
         this.setState({rank: "A-"});
-      }else if(77 <= correctPercentage < 84){
+      }else if(77 <= correctPercentage && correctPercentage < 84){
         this.setState({rank: "A"});
-      }else if(84 <= correctPercentage < 91){
+      }else if(84 <= correctPercentage && correctPercentage < 91){
         this.setState({rank: "A+"});
-      }else if(91 <= correctPercentage < 98){
+      }else if(91 <= correctPercentage){
         this.setState({rank: "S"});
       }
-      console.log("all done!")
     }else{
       this.setState({isCorrect: null});
       this.setState({showAnswer: false});
@@ -160,7 +161,10 @@ class QuizContent extends React.Component {
                   </p>
                 </div> 
                 <div className="rotating-border"> </div>
-                Refresh to try again.
+                <p className=""> </p>
+                <div className="button-wrapper">
+                  <button className="primary-button" onClick={() => {window.location.reload();}}> Try Again</button>
+                </div>
               </div>
          
               
@@ -168,6 +172,10 @@ class QuizContent extends React.Component {
               <div className="">
                 <img className="ability-image" src={`${this.state.sourceData[this.state.currentQuestion].image}`}/>
                 <h1>{this.state.currentQuestion + 1}/{this.state.totalQuestions}</h1>
+
+                {/* Cheater print */}
+                {/* {this.state.sourceData[this.state.currentQuestion].name} */}
+
                 <input type="text" onChange={this.handleChange}/>
                 <div className="button-wrapper">
                   <button className="primary-button" onClick={this.checkAnswer}>SUBMIT</button>

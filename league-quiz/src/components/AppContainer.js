@@ -28,7 +28,6 @@ class AppContainer extends React.Component {
       const scope = this;
       const getAbilityInfoUrl = "https://j094n3z36d.execute-api.us-east-2.amazonaws.com/prod/abilities/" + this.state.numberOfQuestions;
       //TODO -add error handling
-      console.log("about to gt data");
       this.setState({feedbackMessage: "Getting data... hang tight"});
       this.setState({dataLoading: true});
       this.setState({showModal: true});
@@ -81,6 +80,12 @@ class AppContainer extends React.Component {
               </div>
             </Modal> 
             <div className="difficulty-buttons-container">
+              {/* Testing buton
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 3 ? " selected" : "")}  onClick={() => {this.setDifficulty(3, "../Iron.png");}}>
+                <img className="difficulty-button" role="button" src="../Iron.png"/>
+                <p>3 Questions</p>
+              </div>
+              End testing buton */}
               <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 10 ? " selected" : "")}  onClick={() => {this.setDifficulty(10, "../Iron.png");}}>
                 <img className="difficulty-button" role="button" src="../Iron.png"/>
                 <p>10 Questions</p>
