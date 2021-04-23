@@ -188,9 +188,6 @@ class QuizContent extends React.Component {
                 <img className="ability-image" src={`${this.state.sourceData[this.state.currentQuestion].image}`}/>
                 <h1>{this.state.currentQuestion + 1}/{this.state.totalQuestions}</h1>
 
-                {/* Cheater print */}
-                {this.state.sourceData[this.state.currentQuestion].name}
-                {this.state.sourceData[this.state.currentQuestion].champion} - {this.state.sourceData[this.state.currentQuestion].control}
 
                 <input type="text" onChange={this.handleChange}/>
                 <div className="button-wrapper">
