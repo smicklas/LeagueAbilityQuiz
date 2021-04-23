@@ -66,7 +66,7 @@ class AppContainer extends React.Component {
       <div className="app-container">
         {this.state.showIntro ? (
           <div>
-            <img className="quiz-logo" alt="League of Legends Ability Quiz" src="../Logo.png"/> 
+            <img className="quiz-logo" alt="League of Legends Ability Quiz" src="./Logo.png"/> 
             <Modal isOpen={this.state.showModal && (this.state.numberOfQuestions == null)} contentLabel="Minimal Modal Example" className="modal" overlayClassName="overlay">    
               <p>{this.state.feedbackMessage}</p>
               <div className="button-wrapper">
@@ -86,40 +86,40 @@ class AppContainer extends React.Component {
                 <p>3 Questions</p>
               </div>
               End testing buton */}
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 10 ? " selected" : "")}  onClick={() => {this.setDifficulty(10, "../Iron.png");}}>
-                <img className="difficulty-button" role="button" src="../Iron.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 10 ? " selected" : "")}  onClick={() => {this.setDifficulty(10, "./Iron.png");}}>
+                <img className="difficulty-button" role="button" src="./Iron.png"/>
                 <p>10 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 20 ? " selected" : "")} onClick={() => {this.setDifficulty(20, "../Bronze.png");}}>
-                <img className="difficulty-button" role="button" src="../Bronze.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 20 ? " selected" : "")} onClick={() => {this.setDifficulty(20, "./Bronze.png");}}>
+                <img className="difficulty-button" role="button" src="./Bronze.png"/>
                 <p>20 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 30 ? " selected" : "")} onClick={() => { this.setDifficulty(30, "../Silver.png");}}>
-                <img className="difficulty-button" role="button" src="../Silver.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 30 ? " selected" : "")} onClick={() => { this.setDifficulty(30, "./Silver.png");}}>
+                <img className="difficulty-button" role="button" src="./Silver.png"/>
                 <p>30 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 50 ? " selected" : "")} onClick={() => {this.setDifficulty(50, "../Gold.png");}}>
-                <img className="difficulty-button" role="button"src="../Gold.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 50 ? " selected" : "")} onClick={() => {this.setDifficulty(50, "./Gold.png");}}>
+                <img className="difficulty-button" role="button"src="./Gold.png"/>
                 <p>50 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 100 ? " selected" : "")} onClick={() => { this.setDifficulty(100, "../Platinum.png");}}>
-                <img className="difficulty-button" role="button" src="../Platinum.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 100 ? " selected" : "")} onClick={() => { this.setDifficulty(100, "./Platinum.png");}}>
+                <img className="difficulty-button" role="button" src="./Platinum.png"/>
                 <p>100 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 250 ? " selected" : "")} onClick={() => { this.setDifficulty(250, "../Diamond.png");}}>
-                <img className="difficulty-button" role="button" src="../Diamond.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 250 ? " selected" : "")} onClick={() => { this.setDifficulty(250, "./Diamond.png");}}>
+                <img className="difficulty-button" role="button" src="./Diamond.png"/>
                 <p>250 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 500 ? " selected" : "")} onClick={() => { this.setDifficulty(500, "../Master.png"); }}>
-                <img className="difficulty-button" role="button" src="../Master.png"/>
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 500 ? " selected" : "")} onClick={() => { this.setDifficulty(500, "./Master.png"); }}>
+                <img className="difficulty-button" role="button" src="./Master.png"/>
                 <p>500 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 700 ? " selected" : "")} onClick={() => { this.setDifficulty(700, "../Grandmaster.png");}}>
-                <img className="difficulty-button" role="button" src="../Grandmaster.png" />
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == 700 ? " selected" : "")} onClick={() => { this.setDifficulty(700, "./Grandmaster.png");}}>
+                <img className="difficulty-button" role="button" src="./Grandmaster.png" />
                 <p>700 Questions</p>
               </div>
-              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == "all" ? " selected" : "")} onClick={() => { this.setDifficulty("all", "../Challenger.png");}}>
-                <img className="difficulty-button" role="button" src="../Challenger.png" />
+              <div className={"difficulty-button-wrapper" + (this.state.numberOfQuestions == "all" ? " selected" : "")} onClick={() => { this.setDifficulty("all", "./Challenger.png");}}>
+                <img className="difficulty-button" role="button" src="./Challenger.png" />
                 <p>ALL</p>
               </div>
             </div>

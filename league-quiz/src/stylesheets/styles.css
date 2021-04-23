@@ -162,8 +162,8 @@ p.ability-description {
 }
 
 .quiz-logo {
-  width: 40%;
-  margin: 50px 50px 20px 150px;
+  width: 70%;
+  margin: 40px 20px 20px 20px;
 }
 
 /* HR/decoration */
@@ -368,8 +368,9 @@ button.secondary-button {
 /* Modal */
 
 .modal {
+  position: -webkit-sticky;
   position: sticky;
-  top: 25%;
+  top: 30%;
   left: 30%;
   /* right: 40px; */
   /* bottom: 40px; */
@@ -386,12 +387,13 @@ button.secondary-button {
 }
 
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: #0a0b0ee0;
+  width: 100%;
 }
 
 /* Etc */
@@ -504,5 +506,4 @@ button.secondary-button {
     margin: auto;
     width: 100%;
   }
-
 }
