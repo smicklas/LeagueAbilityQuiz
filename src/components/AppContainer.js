@@ -133,6 +133,7 @@ class AppContainer extends React.Component {
         ) : (
           <QuizContent data={this.state} />
         )}
+        <footer> League of Legends and all associated images belong to Riot Games.</footer>
       </div>
     );
   }
