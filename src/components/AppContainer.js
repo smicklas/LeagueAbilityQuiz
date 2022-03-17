@@ -26,7 +26,7 @@ class AppContainer extends React.Component {
       this.setState({feedbackMessage: "Please select a difficulty (number of questions)."})
     } else {
       const scope = this;
-      const getAbilityInfoUrl = "https://j094n3z36d.execute-api.us-east-2.amazonaws.com/prod/abilities/" + this.state.numberOfQuestions;
+      const getAbilityInfoUrl = `${process.env.REACT_APP_API_URL}/prod/abilities/` + this.state.numberOfQuestions;
       //TODO -add error handling
       this.setState({feedbackMessage: "Getting data... hang tight"});
       this.setState({dataLoading: true});
@@ -38,7 +38,7 @@ class AppContainer extends React.Component {
           scope.setState({ showIntro: false });
         });
       if(this.state.numberOfQuestions == "all"){  
-        const getAbilityCountUrl = "https://j094n3z36d.execute-api.us-east-2.amazonaws.com/prod/abilitiesCount"
+        const getAbilityCountUrl = `${process.env.REACT_APP_API_URL}/prod/abilitiesCount`
         fetch( getAbilityCountUrl)
           .then((response) => response.json())
           .then(function (data) {
