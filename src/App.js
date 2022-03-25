@@ -11,14 +11,14 @@ function App() {
         <title>League of Legends Ability Quiz</title>
         <meta
           name="description"
-          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions of classic game from Riot Games."
+          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions featuring abilities from Riot Games' League of Legends."
         />
 
         {/* <!-- Google / Search Engine Tags --> */}
         <meta itemprop="name" content="Reed" />
         <meta
           itemprop="description"
-          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions of classic game from Riot Games."
+          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions featuring abilities from Riot Games' League of Legends."
         />
         <meta
           itemprop="image"
@@ -31,7 +31,7 @@ function App() {
         <meta property="og:title" content="League Ability Quiz" />
         <meta
           property="og:description"
-          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions of classic game from Riot Games."
+          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions featuring abilities from Riot Games' League of Legends."
         />
         <meta
           property="og:image"
@@ -43,7 +43,7 @@ function App() {
         <meta name="twitter:title" content="League Ability Quiz" />
         <meta
           name="twitter:description"
-          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions of classic game from Riot Games."
+          content="Test your knowlege to guess an ability based on its picture, with up to 1000 questions featuring abilities from Riot Games' League of Legends."
         />
         <meta
           name="twitter:image"
