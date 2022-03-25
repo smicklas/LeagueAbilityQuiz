@@ -1,6 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Image from "./Image";
 import QuizContent from "./QuizContent";
 import "../stylesheets/styles.css";
 import Modal from "react-modal";
@@ -55,7 +53,6 @@ class AppContainer extends React.Component {
 
   setDifficulty = (numQuestions, difficultyImgSrc) => {
     this.setState({ feedbackMessage: null });
-    const scope = this;
     //Find out what the current total number of abilities is
     this.setState({ numberOfQuestions: numQuestions });
     this.setState({ difficultyImg: difficultyImgSrc });

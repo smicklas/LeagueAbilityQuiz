@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class QuizContent extends React.Component {
   constructor(props){
@@ -88,32 +87,32 @@ class QuizContent extends React.Component {
       let correctPercentage = Number((this.state.correctAnswers / this.state.totalQuestions) * 100);
       if(0 <= correctPercentage && correctPercentage < 7){
         this.setState({rank: "D-"});
-      }else if(7 <= correctPercentage && correctPercentage < 14){
+      } else if(7 <= correctPercentage && correctPercentage < 14){
         this.setState({rank: "D"});
-      }else if(14 <= correctPercentage && correctPercentage < 21){
+      } else if(14 <= correctPercentage && correctPercentage < 21){
         this.setState({rank: "D+"});
-      }else if(21 <= correctPercentage && correctPercentage < 27){
+      } else if(21 <= correctPercentage && correctPercentage < 27){
         this.setState({rank: "C-"});
-      }else if(28 <= correctPercentage && correctPercentage < 34){
+      } else if(28 <= correctPercentage && correctPercentage < 34){
         this.setState({rank: "C"});
-      }else if(35 <= correctPercentage && correctPercentage < 41){
+      } else if(35 <= correctPercentage && correctPercentage < 41){
         this.setState({rank: "C+"});
-      }else if(49 <= correctPercentage && correctPercentage < 56){
+      } else if(49 <= correctPercentage && correctPercentage < 56){
         this.setState({rank: "B-"});
-      }else if(56 <= correctPercentage && correctPercentage < 63){
+      } else if(56 <= correctPercentage && correctPercentage < 63){
         this.setState({rank: "B"});
-      }else if(63 <= correctPercentage && correctPercentage < 70){
+      } else if(63 <= correctPercentage && correctPercentage < 70){
         this.setState({rank: "B+"});
-      }else if(70 <= correctPercentage && correctPercentage < 77){
+      } else if(70 <= correctPercentage && correctPercentage < 77){
         this.setState({rank: "A-"});
-      }else if(77 <= correctPercentage && correctPercentage < 84){
+      } else if(77 <= correctPercentage && correctPercentage < 84){
         this.setState({rank: "A"});
-      }else if(84 <= correctPercentage && correctPercentage < 91){
+      } else if(84 <= correctPercentage && correctPercentage < 91){
         this.setState({rank: "A+"});
-      }else if(91 <= correctPercentage){
+      } else if(91 <= correctPercentage){
         this.setState({rank: "S"});
       }
-    }else{
+    } else{
       this.setState({isCorrect: null});
       this.setState({showAnswer: false});
       this.setState({userAnswer: ""});
@@ -200,6 +199,5 @@ class QuizContent extends React.Component {
     );
   }
 }
-
 
 export default QuizContent;
