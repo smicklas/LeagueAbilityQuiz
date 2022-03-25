@@ -31,7 +31,7 @@ body:before {
   filter: blur(10px);
 }
 
-.app-container {
+.game-container {
   align-items: center;
   border-radius: 30px;
   border-style: solid;
@@ -45,7 +45,14 @@ body:before {
   margin: auto;
 }
 
+.app-container { 
+  width: 100vw;
+}
+
 /* Text elements */
+a { 
+  color: #af8b38;
+}
 
 p.ability-title {
   font-family: "OPTIDiamond";
@@ -114,6 +121,21 @@ p.ability-description {
   width: 70%;
   margin: 20px auto;
 }
+
+/* Footer */ 
+footer { 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 40px;
+  font-size: 15px;
+  background-color: #292929;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: fixed;
+}
+
 
 /* Images */
 
