@@ -19,12 +19,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
   background-image: url(../background.jpg);
   backdrop-filter: blur(6px);
   background-size: cover;
   background-repeat: no-repeat;
+
 }
 
 body:before {
@@ -127,13 +129,16 @@ p.ability-description {
 /* Footer */ 
 footer { 
   left: 0;
-  bottom: 0;
-  width: 100%;
   font-size: 15px;
   background-color: #292929;
   padding: 20px 0px 20px 0px;
   color: white;
   text-align: center;
+  position:fixed;
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Images */
