@@ -42,7 +42,6 @@ body:before {
   background: rgb(34, 34, 34);
   background: linear-gradient(180deg, #1f1f1f 45%, #0a0a0a 100%);
   height: fit-content;
-  min-height: 70vh;
   max-width: 70vw;
   margin: auto auto 30px auto;
   padding-bottom: 34px;
