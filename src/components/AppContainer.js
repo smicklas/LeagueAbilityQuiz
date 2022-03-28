@@ -1,4 +1,5 @@
 import React from "react";
+import { version } from '../../package.json';
 import QuizContent from "./QuizContent";
 import "../stylesheets/styles.css";
 import Modal from "react-modal";
@@ -272,7 +273,11 @@ class AppContainer extends React.Component {
             <QuizContent data={this.state} />
           )}
         </div>
-        <footer className="footer">Like this quiz? <a href="https://www.buymeacoffee.com/sybbey" target="_blank">Consider supporting me by buying me a beer!</a></footer>
+        <footer className="footer">
+          Like this quiz? <a href="https://www.buymeacoffee.com/sybbey" target="_blank">Consider supporting me by buying me a beer!</a>
+          <br></br>
+          Version {version}
+        </footer>
       </div>
     );
   }
