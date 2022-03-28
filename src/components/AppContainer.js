@@ -64,7 +64,7 @@ class AppContainer extends React.Component {
 
   render() {
     return (
-      <div className="app-container">
+      <div className="app-container" >
         <div className="game-container">
           {this.state.showIntro ? (
             <div>

@@ -58,7 +58,6 @@ class QuizContent extends React.Component {
     cleansedChampionAbilityName = cleansedChampionAbilityName.replace(/\s/g, '');
     cleansedChampionKey = cleansedChampionKey.replace(/\s/g, '');
 
-    //correct answers : morgana e, morgana blackshield
     if(cleansedUserInput == cleansedChampionKey || cleansedUserInput == cleansedChampionAbilityName)
        {
       this.setState({correctAnswers: this.state.correctAnswers + 1});
@@ -120,8 +119,15 @@ class QuizContent extends React.Component {
     this.setState({userAnswer: e.target.value});
   }
 
+//Catch "Enter" keypress and submit answer
+ handleKeypress = e => {
+  if (e.key == "Enter") {
+    e.stopPropagation()
+    this.checkAnswer();
+  }
+};
+
   render() {
-    // "ability": "champion" "control" "image" "description"
     return (
         <div className="quiz-content">
           {this.state.isCorrect ?
@@ -152,7 +158,7 @@ class QuizContent extends React.Component {
               <div className="ability-champion">{this.state.sourceData[this.state.currentQuestion].champion}</div>
               <p className="ability-description" dangerouslySetInnerHTML={{__html: this.state.sourceData[this.state.currentQuestion].description}}></p>
               <div className="button-wrapper">
-                <button className="primary-button" onClick={this.nextPage}>NEXT</button>
+                <button className="primary-button" onClick={this.nextPage} autoFocus>NEXT</button>
               </div>
             </div>
           :
@@ -183,7 +189,7 @@ class QuizContent extends React.Component {
                 <h1>{this.state.currentQuestion + 1}/{this.state.totalQuestions}</h1>
 
 
-                <input type="text" onChange={this.handleChange}/>
+                <input type="text" onChange={this.handleChange} autoFocus onKeyPress={this.handleKeypress}/>
                 <div className="button-wrapper">
                   <button className="primary-button" onClick={this.checkAnswer}>SUBMIT</button>
                 </div>
