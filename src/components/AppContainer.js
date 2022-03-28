@@ -278,7 +278,7 @@ class AppContainer extends React.Component {
           <br></br>
           Version {version}
           <br></br>
-          <p className="footer-small">League of Legends is property of Riot Games, Inc.</p>
+          <p className="footer-small">League of Legends is property of <a href="https://www.riotgames.com/en" >Riot Games, Inc.</a></p>
         </footer>
       </div>
     );
