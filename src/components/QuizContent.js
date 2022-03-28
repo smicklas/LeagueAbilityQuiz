@@ -35,37 +35,32 @@ class QuizContent extends React.Component {
   }
   checkAnswer = () => {
     this.setState({attempts : this.state.attempts + 1})
-    //convert to lower cases 
+    
+    //convert to lower cases
+    let cleansedUserInput = this.state.userAnswer.toLowerCase();
+
     let cleansedAbilityName = this.state.sourceData[this.state.currentQuestion].name.toLowerCase();
     let cleansedChampion = this.state.sourceData[this.state.currentQuestion].champion.toLowerCase();
     let cleansedKey =  this.state.sourceData[this.state.currentQuestion].control.toLowerCase();
+
+    //set up correct answers 
+    // final results should look like "morganae", or "morganablackshield"
     let cleansedChampionKey = cleansedChampion + cleansedKey;
-    let cleansedKeyChampion = cleansedKey + cleansedChampion;
+    let cleansedChampionAbilityName = cleansedChampion + cleansedAbilityName
 
-    let cleansedUserInput = this.state.userAnswer.toLowerCase();
-    
-    //remove spaces
+    //remove non-alphanumeric characters 
+    cleansedUserInput = cleansedUserInput.replace(/[^a-z0-9]/gi, '');
+    cleansedChampionAbilityName = cleansedChampionAbilityName.replace(/[^a-z0-9]/gi, '');
+    cleansedChampionKey = cleansedChampionKey.replace(/[^a-z0-9]/gi, '');
+
+    //remove spaces 
     cleansedUserInput = cleansedUserInput.replace(/\s/g, '');
-    cleansedAbilityName = cleansedAbilityName.replace(/\s/g, '');
+    cleansedChampionAbilityName = cleansedChampionAbilityName.replace(/\s/g, '');
     cleansedChampionKey = cleansedChampionKey.replace(/\s/g, '');
-    cleansedKeyChampion = cleansedKeyChampion.replace(/\s/g, '');
 
-    //remove non-alphanumeric characters
-    cleansedUserInput = cleansedUserInput.replace(/[^0-9a-z]/gi, '');
-    cleansedAbilityName = cleansedAbilityName.replace(/[^0-9a-z]/gi, '');
-    cleansedChampionKey = cleansedChampionKey.replace(/[^0-9a-z]/gi, '');
-    cleansedKeyChampion = cleansedKeyChampion.replace(/[^0-9a-z]/gi, '');
-
-    let differenceCheckChampionControl = "";
-    let differenceCheckAbilityName = ""; 
-    let differenceCheckControlChampion = ""; 
-    differenceCheckAbilityName = this.checkDifference(cleansedAbilityName, cleansedUserInput);
-    differenceCheckChampionControl = this.checkDifference(cleansedChampionKey, cleansedUserInput);
-    differenceCheckControlChampion = this.checkDifference(cleansedKeyChampion, cleansedUserInput);
-
-    if(cleansedUserInput == cleansedAbilityName || differenceCheckAbilityName < 3 ||
-       cleansedUserInput == cleansedChampionKey || differenceCheckChampionControl < 3 || 
-       cleansedUserInput == cleansedKeyChampion || differenceCheckControlChampion < 3 ){
+    //correct answers : morgana e, morgana blackshield
+    if(cleansedUserInput == cleansedChampionKey || cleansedUserInput == cleansedChampionAbilityName)
+       {
       this.setState({correctAnswers: this.state.correctAnswers + 1});
       this.setState({isCorrect: true});
       this.setState({showAnswer : true});
