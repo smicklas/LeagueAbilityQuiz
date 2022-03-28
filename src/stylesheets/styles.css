@@ -98,7 +98,7 @@ h1:after {
   margin-left: 10px;
   background: linear-gradient(
     90deg,
-    rgba(185, 169, 128, 1) 0%.otf,
+    rgba(185, 169, 128, 1) 0%,
     rgba(61, 61, 61, 0) 100%
   );
 }
