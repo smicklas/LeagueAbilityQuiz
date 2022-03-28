@@ -277,6 +277,8 @@ class AppContainer extends React.Component {
           Like this quiz? <a href="https://www.buymeacoffee.com/sybbey" target="_blank">Consider supporting me by buying me a beer!</a>
           <br></br>
           Version {version}
+          <br></br>
+          <p className="footer-small">League of Legends is property of Riot Games, Inc.</p>
         </footer>
       </div>
     );

@@ -130,12 +130,16 @@ footer {
   left: 0;
   font-size: 15px;
   background-color: #292929;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 0px 5px 0px;
   color: white;
   text-align: center;
   width:100%;
   position: fixed;
-  bottom: -50px;
+  bottom: -100px;
+}
+
+p.footer-small { 
+  font-size: 12px;
 }
 
 /* Images */
